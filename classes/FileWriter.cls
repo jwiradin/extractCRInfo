@@ -37,13 +37,10 @@ Public Sub WriteLine(ParamArray vals() As Variant)
     Dim i As Integer
     
     If bFileOpen Then
-        For i = LBound(vals) To UBound(vals)
-            If i = UBound(vals) Then
-                Write #iFile, CStr(vals(i))
-            Else
-                Write #iFile, CStr(vals(i));
-            End If
+        For i = LBound(vals) To UBound(vals) - 1
+            Print #iFile, CStr(vals(i));
         Next
+        Print #iFile, CStr(vals(i))
     End If
 End Sub
 
